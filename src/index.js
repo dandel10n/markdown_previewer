@@ -20,8 +20,10 @@ class Display extends React.Component {
 	render(){
 		return (
 			<div className="container">
-				<div className="block markdown_block">
-					<textarea rows="40" cols="70" onChange={this.handleChange} defaultValue={this.state.input}></textarea>
+				<header>Markdown previewer</header>
+				<div className="description">You can type GitHub-flavored Markdown into a text area and see the output in the result block.</div>
+				<div >
+					<textarea onChange={this.handleChange} defaultValue={this.state.input} className="block markdown_block"></textarea>
 				</div>
 				<div className="block render_block" dangerouslySetInnerHTML={this.createMarkup()}/>
 			</div>
@@ -33,7 +35,6 @@ class Display extends React.Component {
     	return {__html: markdown};
   	}
 };
-
 
 ReactDOM.render(
   	<Display />,
